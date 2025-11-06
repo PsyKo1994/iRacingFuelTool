@@ -47,11 +47,13 @@
         <!-- Track temp -->
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Margin="0,0,0,8">
             <TextBlock Text="Track Temp: " FontWeight="Bold"/>
+            <TextBlock x:Name="TrackTemp" Text="--" />
         </StackPanel>
         
         <!-- Air temp -->
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Margin="0,0,0,8">
             <TextBlock Text="Air Temp: " FontWeight="Bold"/>
+            <TextBlock x:Name="AirTemp" Text="--" />
         </StackPanel>
 
         <!-- Strengths of Field -->

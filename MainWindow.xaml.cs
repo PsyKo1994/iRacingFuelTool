@@ -23,8 +23,10 @@ namespace iRacingFuelTool
 
         public MainWindow()
         {
-            //Start Telemetry
+            //Start UI
             InitializeComponent();
+
+            //Start Telemetry
             StartTelemetry();
 
             //Create a timer that ticks 2 times a second
@@ -36,6 +38,10 @@ namespace iRacingFuelTool
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            //Get telemetry values from TelemetryReader
+            double _TrackTemp = _telemetryReader.TrackTemp;
+            double _AirTemp = _telemetryReader.AirTemp;
+
             //Pretend values
             double avgFuelPerLap = Math.Round(2.5 + _rand.NextDouble() * 0.3, 2); // e.g. 2.5 L/lap
             int lapsRemaining = _rand.Next(5, 20); // e.g. 12 laps left
@@ -56,6 +62,8 @@ namespace iRacingFuelTool
             LapsRemainingText.Text = lapsRemaining.ToString();
             FuelNeededText.Text = fuelNeeded.ToString("0.0");
             FuelToAddText.Text = fuelToAdd.ToString("0.0");
+            TrackTemp.Text = _TrackTemp.ToString("00.00 °C");
+            AirTemp.Text = _AirTemp.ToString("00.00 °C");
 
             //Status logic
             if (fuelToAdd > 0)
