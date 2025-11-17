@@ -6,13 +6,19 @@ using Microsoft.Extensions.Logging;
 using SVappsLAB.iRacingTelemetrySDK;
 
 //Define the telemetry variables you want to track
-[RequiredTelemetryVars(["Speed", "RPM", "Gear", "TrackTemp", "AirTemp"])]
+[RequiredTelemetryVars(["Speed", "RPM", "Gear", "TrackTemp", "AirTemp", "FuelLevel", "FuelLevelPct", "Lap", "SessionTimeRemain", "SessionLapsRemain"])]
 
 public class TelemetryReader
 {
     //Values being captured
     public double TrackTemp { get; private set; }
     public double AirTemp { get; private set; }
+    public float FuelLevel { get; private set; }
+    public float FuelLevelPct { get; private set; }
+    public int Lap { get; private set; }
+    public double SessionTimeRemain { get; private set; }
+    public int SessionLapsRemain { get; private set; }
+
 
     //Tassk to start telemetry monitoring
     public async Task StartAsync(CancellationToken token)
@@ -33,6 +39,11 @@ public class TelemetryReader
             System.Diagnostics.Debug.WriteLine($"Speed: {data.Speed:F0} KPH, RPM: {data.RPM:F0}, Gear: {data.Gear}, Track Temp: {data.TrackTemp:F2}, Air Temp: {data.AirTemp:F2}");
             TrackTemp = data.TrackTemp;
             AirTemp = data.AirTemp;
+            FuelLevel = data.FuelLevel;
+            FuelLevelPct = data.FuelLevelPct;
+            Lap = data.Lap;
+            SessionTimeRemain = data.SessionTimeRemain;
+            SessionLapsRemain = data.SessionLapsRemain;
 
 
         };
