@@ -41,6 +41,8 @@ namespace iRacingFuelTool
             //Get telemetry values from TelemetryReader
             double _TrackTemp = _telemetryReader.TrackTemp;
             double _AirTemp = _telemetryReader.AirTemp;
+            float _FuelLevel = _telemetryReader.FuelLevel;
+            float _FuelLevelPct = _telemetryReader.FuelLevelPct;
 
             //Pretend values
             double avgFuelPerLap = Math.Round(2.5 + _rand.NextDouble() * 0.3, 2); // e.g. 2.5 L/lap
@@ -64,6 +66,8 @@ namespace iRacingFuelTool
             FuelToAddText.Text = fuelToAdd.ToString("0.0");
             TrackTemp.Text = _TrackTemp.ToString("00.00 °C");
             AirTemp.Text = _AirTemp.ToString("00.00 °C");
+            FuelLevel.Text = _FuelLevel.ToString("0.00 L");
+            FuelLevelPct.Text = _FuelLevelPct.ToString("0.00 %");
 
             //Status logic
             if (fuelToAdd > 0)

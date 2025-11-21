@@ -60,9 +60,23 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="0,0,0,8">
             <TextBlock Text="S.O.F: " FontWeight="Bold"/>
         </StackPanel>
+        
+        <!-- Fuel Level -->
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="0,0,0,8">
+            <TextBlock Text="Fuel Level:" Width="100" FontWeight="Bold"/>
+            <TextBlock x:Name="FuelLevel" Text="--" />
+            <TextBlock Text=" L" Margin="4,0,0,0"/>
+        </StackPanel>
+
+        <!-- Fuel Level %-->
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" Margin="0,0,0,8">
+            <TextBlock Text="Fuel Level %:" Width="100" FontWeight="Bold"/>
+            <TextBlock x:Name="FuelLevelPct" Text="--" />
+            <TextBlock Text=" L" Margin="4,0,0,0"/>
+        </StackPanel>
 
         <!-- Status (safe / short etc) -->
-        <Border Grid.Row="4" Padding="12" CornerRadius="6" BorderBrush="Gray" BorderThickness="1">
+        <Border Grid.Row="4" Padding="12" CornerRadius="6" BorderBrush="Gray" BorderThickness="1" Margin="0,50,0,0">
             <TextBlock x:Name="StatusText"
                        Text="Waiting for data..."
                        FontSize="16"
